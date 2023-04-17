@@ -1,0 +1,52 @@
+.app {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    display: flex;
+    width: 350px;
+    background-color: #f5f5f5;
+    border-right: 1px solid #ccc;
+    overflow: hidden;
+  }
+  
+  .sidebar.collapsed {
+    width: 0;
+  }
+
+  .folder-list {
+    background-color: #2c2a2a;
+  }
+  
+  .note-list {
+    background-color: #212121;
+    overflow-y: auto;
+    -ms-overflow-style: none; /* Internet Explorer and Edge */
+    scrollbar-width: none; /* Firefox */
+
+  }
+
+  
+  /* For Webkit browsers (Chrome, Safari, Opera) */
+  .note-list::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .main {
+    flex-grow: 1;
+    padding: 16px;
+    overflow-y: auto;
+  }
+  
+
+
+
+
+
+::ng-deep .container .ql-container.ql-snow{
+     border:none;
+     stroke: #ffffff !important;
+     display:flex;
+     justify-content: center;   
+    }

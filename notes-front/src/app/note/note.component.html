@@ -1,0 +1,12 @@
+<div class="note-container">
+  <div class="note-header">
+    <h2 *ngIf="note" class="note-title">{{ note.title }}</h2>
+    <div class="note-actions">
+      <button mat-raised-button color="primary">Save</button>
+      <button mat-raised-button color="accent">Delete</button>
+    </div>
+  </div>
+
+  <div id="editor"></div>
+</div>
+

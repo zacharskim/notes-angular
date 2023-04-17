@@ -1,0 +1,20 @@
+<div class="search-bar-container">
+  <fa-icon class="note-icon" [icon]="faMagnifyingGlass"></fa-icon>
+  <input type="text" placeholder="Search all notes..." class="search-bar" />
+  <button class="list-action-btn">
+    <fa-icon [icon]="faPenToSquare"></fa-icon>
+  </button>
+</div>
+<div class="note-list-container">
+  <mat-list>
+    <mat-list-item *ngFor="let note of notes; let i = index" [ngClass]="{'note-item-active': selectedIndex === i}" class="note-item" (click)="selectNote(i)">
+      <div class="note-info">
+        <div class="note-header">
+          <div class="note-time">{{ note.timeSinceEdited }}</div>
+          <h4 mat-line>{{ note.title }}</h4>
+        </div>
+          <div class="note-content">{{ note.content }}</div>
+      </div>
+    </mat-list-item>
+  </mat-list>
+</div>

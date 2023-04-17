@@ -1,0 +1,94 @@
+.search-bar-container {
+  position: sticky;
+  top: 0;
+  background-color: #212121;
+  padding: 8px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.search-bar {
+  width: 100%;
+  background-color: #212121;
+}
+
+.note-list-container {
+  max-height: calc(100vh - 60px); /* Adjust the height as needed */
+  overflow-y: auto;
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* For Webkit browsers (Chrome, Safari, Opera) */
+.note-list-container::-webkit-scrollbar {
+  display: none;
+}
+
+.note-item {
+  display: flex;
+  padding: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  
+}
+
+.note-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.note-item-active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.note-info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+}
+
+.note-header {
+  display: flex;
+  align-items: baseline;
+}
+
+.note-time {
+  font-size: 16px;
+  color: #90caf9;
+  margin-right: 8px;
+}
+
+.note-content {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-left: calc(16px + 14px); /* Adding the margin-right of .note-time and the width of the icon */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+
+.list-action-btn {
+    background-color: transparent;
+    border: none;
+    color: #90caf9;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    gap: 8px;
+    padding: 8px;
+    transition: color 0.3s;
+  }
+  
+  .list-action-btn:hover {
+    color: #ffffff;
+  }
+
+  .note-icon {
+    color: #90caf9;
+    margin-right: 8px;
+  }

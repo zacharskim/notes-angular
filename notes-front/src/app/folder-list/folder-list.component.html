@@ -1,0 +1,18 @@
+<div class="folder-list-header">
+  <button class="folder-action-btn" (click)="addFolder()">
+    <fa-icon [icon]="faFolderPlus"></fa-icon>
+    Add
+  </button>
+  <button class="folder-action-btn" (click)="deleteFolder()">
+    <fa-icon [icon]="faTrashCan"></fa-icon>
+    Delete
+  </button>
+</div>
+<mat-list>
+  <mat-list-item *ngFor="let folder of folders; let i = index" [ngClass]="{'folder-item-active': selectedIndex === i}" class="folder-item" (click)="selectFolder(i)">
+    <div class="folder-container">
+      <fa-icon class="folder-icon" [icon]="faFolder"></fa-icon>
+      <h4 mat-line>{{ folder.name }}</h4>
+    </div>
+  </mat-list-item>
+</mat-list>

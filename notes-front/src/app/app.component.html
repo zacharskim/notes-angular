@@ -1,0 +1,17 @@
+<app-landing-page *ngIf="!isLoggedIn"></app-landing-page>
+
+<div *ngIf="isLoggedIn" class="main-container">
+  <div class="app">
+    <div class="sidebar">
+      <div class="folder-list">
+        <app-folder-list></app-folder-list>
+      </div>
+      <div class="note-list">
+        <app-note-list (noteSelected)="onNoteSelected($event)"></app-note-list>
+      </div>
+    </div>
+    <div class="main">
+      <app-note [note]="selectedNote"></app-note>
+    </div>
+  </div>
+</div>

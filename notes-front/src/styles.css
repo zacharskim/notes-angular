@@ -1,0 +1,79 @@
+/* Fonts */
+body {
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
+  color: #f1f1f1;
+  background-color: #212121fc;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: #f1f1f1;
+  margin-top: 0;
+}
+
+/* Links */
+a {
+  color: #90caf9;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #63a4ff;
+  text-decoration: underline;
+}
+
+/* Buttons */
+button {
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
+  background-color: #90caf9;
+  border: none;
+  color: #212121;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #63a4ff;
+}
+
+button:active {
+  background-color: #1c6fbd;
+}
+
+/* Forms */
+input[type="text"], input[type="password"], textarea, select {
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #424242;
+  color: #f1f1f1;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
+  outline: none;
+  border: 1px solid #90caf9;
+}
+
+/* Cards */
+.card {
+  background-color: #424242;
+  border-radius: 4px;
+  padding: 16px;
+  margin: 8px 0;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}

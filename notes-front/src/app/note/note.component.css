@@ -1,0 +1,43 @@
+.note-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .note-title {
+    margin: 0;
+  }
+  
+  .note-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .note-editor {
+    flex-grow: 1;
+  }
+  
+
+.note-actions button {
+  background-color: transparent;
+  color: #90caf9;
+  transition: all 0.3s ease;
+}
+
+.note-actions button:hover {
+  background-color: rgba(144, 202, 249, 0.1);
+  color: #42a5f5;
+  cursor: pointer;
+}
+
+.note-actions button:active {
+  background-color: rgba(144, 202, 249, 0.2);
+  color: #1e88e5;
+}
