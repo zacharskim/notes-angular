@@ -16,6 +16,7 @@ export class FoldersService {
   constructor(private http: HttpClient) { }
 
   getFoldersByUid(uid: number): Observable<any> {
+    console.log("sheesh");
     return this.http.get(`${this.apiUrl}/folder/${uid}`);
   }
 

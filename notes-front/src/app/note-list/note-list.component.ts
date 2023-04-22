@@ -4,10 +4,13 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FoldersService } from '../services/folders.service';
 import { UsersService } from '../services/users.service';
 import { Subscription } from 'rxjs';
-import { User } from '../user.model';
+import { User } from '../models/user.model';
 import { NotesService } from '../services/notes.service';
-import { Note } from '../note.model';
-
+import { Note } from '../models/note.model';
+import { Store, select } from '@ngrx/store';
+import { AppState } from '../store/app.state';
+import { selectUserObj } from '../store/user.selectors';
+import { switchMap, tap } from 'rxjs/operators';
 
 
 
@@ -16,41 +19,44 @@ import { Note } from '../note.model';
   templateUrl: './note-list.component.html',
   styleUrls: ['./note-list.component.css']
 })
-export class NoteListComponent implements OnInit, OnDestroy {
+export class NoteListComponent implements OnInit {
 
   @Output() noteSelected = new EventEmitter<Note>();
 
   currentFolderSubscription!: Subscription;
-  constructor(private foldersService: FoldersService, private usersService: UsersService, private notesService: NotesService) { }
+  constructor(private foldersService: FoldersService, private usersService: UsersService, private notesService: NotesService, private store: Store<AppState>) { }
 
   ngOnInit(): void {
-    const user = this.usersService.getCurrentUser();
-
-    this.currentFolderSubscription = this.foldersService.currentFolder$.subscribe(folderIndex => {
-      if (folderIndex === null) {
-        this.notes = []; // Set to empty state when no folder is selected
-      } else {
-        this.loadNotes(user, folderIndex);
-      }
-    });
+    this.currentFolderSubscription = this.foldersService.currentFolder$.pipe(
+      switchMap(folderIndex => {
+        if (folderIndex === null) {
+          this.notes = []; 
+          return [];
+        } else {
+          return this.store.pipe(
+            select(selectUserObj),
+            switchMap(user => {
+              if (user) {
+                return this.notesService.getNotesByUid(user.id);
+              }
+              return [];
+            }),
+            tap(notes => {
+              this.notes = notes.filter((note: Note) => note.folderId === folderIndex);
+            })
+          );
+        }
+      })
+    ).subscribe();
   }
 
-  ngOnDestroy(): void {
-    this.currentFolderSubscription.unsubscribe();
-  }
+
 
   faPenToSquare = faPenToSquare;
   faMagnifyingGlass = faMagnifyingGlass;
 
   selectedIndex: number | null = null;
 
-  loadNotes(user: User, folderIndex: number) {
-    console.log('loading in notes again');
-    this.notesService.getNotesByUid(user.id).subscribe(notes => {
-      console.log("the notes", typeof notes[0].created, folderIndex);
-      this.notes = notes.filter((note: Note) => note.folderId === folderIndex);
-    });
-  }
 
   notes: any[] = [];
 

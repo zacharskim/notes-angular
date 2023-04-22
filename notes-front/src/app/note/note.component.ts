@@ -1,6 +1,6 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import Quill from 'quill';
-import { Note } from '../note.model';
+import { Note } from '../models/note.model';
 
 
 @Component({
@@ -50,7 +50,6 @@ export class NoteComponent {
       console.log(this.note.content, "setting content?");
     }
   }
-
 
 
   ngAfterViewInit() {

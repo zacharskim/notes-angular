@@ -1,6 +1,6 @@
-<app-landing-page *ngIf="!isLoggedIn"></app-landing-page>
+<app-landing-page *ngIf="!(isLoggedIn$ | async)"></app-landing-page>
 
-<div *ngIf="isLoggedIn" class="main-container">
+<div *ngIf="isLoggedIn$ | async" class="main-container">
   <div class="app">
     <div class="sidebar">
       <div class="folder-list">

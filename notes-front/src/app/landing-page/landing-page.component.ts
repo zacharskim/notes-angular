@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { UsersService } from '../services/users.service';
-import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { loginUserRequest } from '../store/users.actions';
+import { AppState } from '../store/app.state';
+
 
 @Component({
   selector: 'app-landing-page',
@@ -11,32 +13,11 @@ import { Observable } from 'rxjs';
 export class LandingPageComponent {
 
   username: string = '';
-  constructor(private usersService: UsersService) { }
+  constructor(private usersService: UsersService, private store: Store<AppState>) { }
 
 
   login(){
-
-    console.log("running", this.username);
-    this.usersService.getUser(this.username).subscribe(user => {
-      if (user) {
-        // Log the user in
-        // ...
-        console.log(user, 'setting user to this..');
-        this.usersService.setUser(user);
-        this.usersService.updateLoggedIn(true);
-      } else {
-        // Throw an error
-        // ...
-        console.log("error?");
-      }
-    }, error => {
-      // Handle the error
-      // ...
-      console.log(error, "eh");
-    });
-
-
-
+    this.store.dispatch(loginUserRequest({ username: this.username }));
   }
 
   signup(){

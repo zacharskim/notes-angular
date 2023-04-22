@@ -5,7 +5,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
-})
+}) 
 export class NotesService {
   private apiUrl = 'http://localhost:5188/api/Notes';
 
