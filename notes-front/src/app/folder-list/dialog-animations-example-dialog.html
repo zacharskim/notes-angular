@@ -1,0 +1,13 @@
+
+<div class="dialog-style">
+    <h1 mat-dialog-title>Add Folder</h1>
+    <div class="card-content">
+        <mat-form-field>
+          <input matInput [(ngModel)]="data.name" placeholder="Math Homework">
+        </mat-form-field>
+      </div>
+    <div mat-dialog-actions class="dialog-buttons">
+    <button mat-dialog-close>Cancel</button>
+    <button  mat-dialog-close  [mat-dialog-close]="data.name" >Create</button>
+    </div>
+</div>

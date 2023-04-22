@@ -1,0 +1,37 @@
+
+.dialog-style {
+    background-color: #dacaca5a;
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+  }
+  
+
+  .card-content input{
+    margin-bottom: 10px;
+  }
+
+  .dialog-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+
+  .dialog-buttons button{
+    border-radius: 12px;
+  }
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+
+
+
+  
